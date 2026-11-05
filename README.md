@@ -39,8 +39,8 @@ OS name: "linux", version: "7.2.14-arch1-1", arch: "amd64", family: "unix"
 
 JaCoCo тайлан дээрх ажиглалт (`ScholarshipCalculator.java`, мөрийн дугаар нь эх кодынх):
 
-- Улаан (огт ажиллаагүй) мөрүүд: гурван `throw new IllegalArgumentException` (21, 32, 49-р мөр), `letterGrade`-ийн C/D/F буцаалт (25-27), `gpa`-ийн `switch`-ийн C, D, F салаа (39, 40) ба `scholarship`-ийн сүүлийн `return 0` (55). Өөрөөр хэлбэл алдааны бүх зам, A/B-ээс бусад үсгэн дүн тестлэгдээгүй байна.
-- Шар (салаа хагас хамрагдсан) мөрүүд: `letterGrade`-ийн хүрээний шалгалт ба `>= 90` (20, 24), `gpa`-ийн null/хоосон шалгалт (31), давталтын нөхцөл (36), `scholarship`-ийн оролтын шалгалт (48) болон `hasViolation`, `>= 3.8 && >= 15`, `>= 3.4 && >= 12`, `>= 3.0` нөхцөлүүд (51-54). Эдгээрт үнэн эсвэл худал талын аль нэг нь хэзээ ч биелээгүй (жишээ нь `&&`, `||`-ийн хоёр дахь нөхцөл шалгагдаагүй).
+- Улаан (огт ажиллаагүй) мөрүүд: гурван `throw new IllegalArgumentException` (21, 32, 49-р мөр), `letterGrade`-ийн C/D/F-д хүрэх мөрүүд (25-27), `gpa`-ийн `switch`-ийн `case "C"` ба `case "D"` (39, 40) ба `scholarship`-ийн сүүлийн `return 0` (55). `default` (F) салаа өөрийн мөргүй тул зөвхөн 36-р мөрийн дутуу салаа болж харагдана. Өөрөөр хэлбэл алдааны бүх зам, A/B-ээс бусад үсгэн дүн тестлэгдээгүй байна.
+- Шар (салаа хагас хамрагдсан) мөрүүд: `letterGrade`-ийн хүрээний шалгалт (20) ба `>= 80` (24), `gpa`-ийн null/хоосон шалгалт (31), `switch (letterGrade(s))` (36; 5 салааны 3 нь хамрагдаагүй: C, D ба default (F)), `scholarship`-ийн оролтын шалгалт (48) болон `hasViolation`, `>= 3.8 && >= 15`, `>= 3.4 && >= 12`, `>= 3.0` нөхцөлүүд (51-54). Эдгээрт үнэн эсвэл худал талын аль нэг нь хэзээ ч биелээгүй (жишээ нь `&&`, `||`-ийн хоёр дахь нөхцөл шалгагдаагүй).
 
 ## Хэсэг B: CFG зурж branch 100% хүрэх
 
@@ -82,7 +82,7 @@ ScholarshipCalculatorTest.letterGrade_boundaries:165 expected: <D> but was: <F>
 
 (`letterGrade_boundaries(double, String)[3]` нь `60, D` мөр.)
 
-Алдаа: `letterGrade` функц `if (score > 60) return "D";` гэж бичигдсэн байсан боловч спецификаци 60-69.99-ийг "D" гэж заасан. Иймээс 60 оноо "F" болж буцаж байв. Засвар: `score >= 60`. Засвараас хойш (`results/mvn-verify-final.txt`): `Tests run: 34, Failures: 0`, мөн `results/jacoco-final.csv`-д `BRANCH_MISSED = 0`, `LINE_MISSED = 0`.
+Алдаа: `letterGrade` функц `if (score > 60) return "D";` гэж бичигдсэн байсан боловч спецификаци 60-69.99-ийг "D" гэж заасан. Иймээс 60 оноо "F" болж буцаж байв. Засвар: `score >= 60`. Засварын commit: `2af857b` — `Fix letterGrade: > 60 -> >= 60, spec says 60 is D (letterGrade(60) returned F)`. Засвараас хойш (`results/mvn-verify-final.txt`): `Tests run: 34, Failures: 0`, мөн `results/jacoco-final.csv`-д `BRANCH_MISSED = 0`, `LINE_MISSED = 0`.
 
 ### Дүгнэлт
 
