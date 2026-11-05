@@ -4,6 +4,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 class ScholarshipCalculatorTest {
 
@@ -136,5 +138,30 @@ class ScholarshipCalculatorTest {
     void gpa_manyScores_is2_5() {
         // A=4, B=3, C=2, D=1 -> 10 / 4
         assertEquals(2.5, calc.gpa(new double[] {95, 85, 75, 65}), 1e-9);
+    }
+
+    // ---- Part D: boundary values of letterGrade() taken from the specification ----
+
+    @Test
+    void letterGrade_60_isD() {
+        // spec: 60-69.99 -> "D"; 60 is the lower boundary of D
+        assertEquals("D", calc.letterGrade(60));
+    }
+
+    @ParameterizedTest(name = "letterGrade({0}) = {1}")
+    @CsvSource({
+        "0,     F",
+        "59.99, F",
+        "60,    D",
+        "69.99, D",
+        "70,    C",
+        "79.99, C",
+        "80,    B",
+        "89.99, B",
+        "90,    A",
+        "100,   A"
+    })
+    void letterGrade_boundaries(double score, String expected) {
+        assertEquals(expected, calc.letterGrade(score));
     }
 }
