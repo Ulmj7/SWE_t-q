@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1420" height="1090" viewBox="0 0 1420 1090" font-family="DejaVu Sans, Arial, sans-serif">
+<defs><marker id="a" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 z" fill="#222"/></marker></defs>
+<rect width="1420" height="1090" fill="white"/>
+<text x="560" y="36" font-size="13" text-anchor="middle" fill="#111" font-weight="bold" font-family="DejaVu Sans Mono, monospace">ENTRY</text>
+<path d="M560,42 L560,68" fill="none" stroke="#222" stroke-width="1.5" marker-end="url(#a)"/>
+<rect x="450.0" y="68.0" width="220" height="44" rx="22" fill="#eef3ff" stroke="#222" stroke-width="1.6"/>
+<text x="560" y="95" font-size="14" text-anchor="middle" font-family="DejaVu Sans Mono, monospace">N1 [L48] gpa &lt; 0</text>
+<rect x="450.0" y="168.0" width="220" height="44" rx="22" fill="#eef3ff" stroke="#222" stroke-width="1.6"/>
+<text x="560" y="195" font-size="14" text-anchor="middle" font-family="DejaVu Sans Mono, monospace">N2 [L48] gpa &gt; 4</text>
+<rect x="450.0" y="268.0" width="220" height="44" rx="22" fill="#eef3ff" stroke="#222" stroke-width="1.6"/>
+<text x="560" y="295" font-size="14" text-anchor="middle" font-family="DejaVu Sans Mono, monospace">N3 [L48] credits &lt; 0</text>
+<rect x="450.0" y="368.0" width="220" height="44" rx="22" fill="#eef3ff" stroke="#222" stroke-width="1.6"/>
+<text x="560" y="395" font-size="14" text-anchor="middle" font-family="DejaVu Sans Mono, monospace">N5 [L51] hasViolation</text>
+<rect x="450.0" y="468.0" width="220" height="44" rx="22" fill="#eef3ff" stroke="#222" stroke-width="1.6"/>
+<text x="560" y="495" font-size="14" text-anchor="middle" font-family="DejaVu Sans Mono, monospace">N7 [L52] gpa &gt;= 3.8</text>
+<rect x="450.0" y="568.0" width="220" height="44" rx="22" fill="#eef3ff" stroke="#222" stroke-width="1.6"/>
+<text x="560" y="595" font-size="14" text-anchor="middle" font-family="DejaVu Sans Mono, monospace">N8 [L52] credits &gt;= 15</text>
+<rect x="450.0" y="668.0" width="220" height="44" rx="22" fill="#eef3ff" stroke="#222" stroke-width="1.6"/>
+<text x="560" y="695" font-size="14" text-anchor="middle" font-family="DejaVu Sans Mono, monospace">N10 [L53] gpa &gt;= 3.4</text>
+<rect x="450.0" y="768.0" width="220" height="44" rx="22" fill="#eef3ff" stroke="#222" stroke-width="1.6"/>
+<text x="560" y="795" font-size="14" text-anchor="middle" font-family="DejaVu Sans Mono, monospace">N11 [L53] credits &gt;= 12</text>
+<rect x="450.0" y="868.0" width="220" height="44" rx="22" fill="#eef3ff" stroke="#222" stroke-width="1.6"/>
+<text x="560" y="895" font-size="14" text-anchor="middle" font-family="DejaVu Sans Mono, monospace">N13 [L54] gpa &gt;= 3.0</text>
+<rect x="35.0" y="80.0" width="150" height="220" rx="3" fill="#f1f1f1" stroke="#222" stroke-width="1.6"/>
+<text x="110" y="168" font-size="14" text-anchor="middle" font-family="DejaVu Sans Mono, monospace">N4 [L49]</text>
+<text x="110" y="186" font-size="14" text-anchor="middle" font-family="DejaVu Sans Mono, monospace">throw</text>
+<text x="110" y="204" font-size="14" text-anchor="middle" font-family="DejaVu Sans Mono, monospace">IllegalArgument-</text>
+<text x="110" y="222" font-size="14" text-anchor="middle" font-family="DejaVu Sans Mono, monospace">Exception</text>
+<rect x="1290" y="60" width="80" height="962" rx="6" fill="#dfe8df" stroke="#222" stroke-width="2.2"/>
+<text transform="translate(1336,541) rotate(-90)" font-size="18" text-anchor="middle" font-weight="bold" font-family="DejaVu Sans Mono, monospace">EXIT</text>
+<path d="M450,90 L185,90" fill="none" stroke="#222" stroke-width="1.5" marker-end="url(#a)"/>
+<text x="442" y="84" font-size="14" text-anchor="end" fill="#b00000" font-weight="bold" font-family="DejaVu Sans Mono, monospace">T</text>
+<text x="190" y="82" font-size="11.5" text-anchor="start" fill="#111" font-family="DejaVu Sans Mono, monospace">scholarship_negativeGpa_throws</text>
+<path d="M450,190 L185,190" fill="none" stroke="#222" stroke-width="1.5" marker-end="url(#a)"/>
+<text x="442" y="184" font-size="14" text-anchor="end" fill="#b00000" font-weight="bold" font-family="DejaVu Sans Mono, monospace">T</text>
+<text x="190" y="182" font-size="11.5" text-anchor="start" fill="#111" font-family="DejaVu Sans Mono, monospace">scholarship_gpaAbove4_throws</text>
+<path d="M450,290 L185,290" fill="none" stroke="#222" stroke-width="1.5" marker-end="url(#a)"/>
+<text x="442" y="284" font-size="14" text-anchor="end" fill="#b00000" font-weight="bold" font-family="DejaVu Sans Mono, monospace">T</text>
+<text x="190" y="282" font-size="11.5" text-anchor="start" fill="#111" font-family="DejaVu Sans Mono, monospace">scholarship_negativeCredits_throws</text>
+<path d="M560,112 L560,168" fill="none" stroke="#222" stroke-width="1.5" marker-end="url(#a)"/>
+<text x="568" y="128" font-size="14" text-anchor="start" fill="#b00000" font-weight="bold" font-family="DejaVu Sans Mono, monospace">F</text>
+<text x="588" y="128" font-size="11.5" text-anchor="start" fill="#111" font-family="DejaVu Sans Mono, monospace">all other scholarship_* tests</text>
+<path d="M560,212 L560,268" fill="none" stroke="#222" stroke-width="1.5" marker-end="url(#a)"/>
+<text x="568" y="228" font-size="14" text-anchor="start" fill="#b00000" font-weight="bold" font-family="DejaVu Sans Mono, monospace">F</text>
+<text x="588" y="228" font-size="11.5" text-anchor="start" fill="#111" font-family="DejaVu Sans Mono, monospace">all scholarship_* tests except negativeGpa_throws, gpaAbove4_throws</text>
+<path d="M560,312 L560,368" fill="none" stroke="#222" stroke-width="1.5" marker-end="url(#a)"/>
+<text x="568" y="328" font-size="14" text-anchor="start" fill="#b00000" font-weight="bold" font-family="DejaVu Sans Mono, monospace">F</text>
+<text x="588" y="328" font-size="11.5" text-anchor="start" fill="#111" font-family="DejaVu Sans Mono, monospace">all scholarship_* tests except the 3 *_throws tests</text>
+<path d="M110,80 L110,14 L1330,14 L1330,60" fill="none" stroke="#222" stroke-width="1.5" marker-end="url(#a)"/>
+<text x="130" y="11" font-size="11" text-anchor="start" fill="#111" font-family="DejaVu Sans Mono, monospace">exception path: N4 -&gt; EXIT</text>
+<path d="M670,390 L1020.0,390" fill="none" stroke="#222" stroke-width="1.5" marker-end="url(#a)"/>
+<text x="678" y="384" font-size="14" text-anchor="start" fill="#b00000" font-weight="bold" font-family="DejaVu Sans Mono, monospace">T</text>
+<text x="698" y="382" font-size="11.5" text-anchor="start" fill="#111" font-family="DejaVu Sans Mono, monospace">scholarship_violation_is0</text>
+<rect x="1020.0" y="368.0" width="140" height="44" rx="3" fill="#f1f1f1" stroke="#222" stroke-width="1.6"/>
+<text x="1090" y="386" font-size="14" text-anchor="middle" font-family="DejaVu Sans Mono, monospace">N6 [L51]</text>
+<text x="1090" y="404" font-size="14" text-anchor="middle" font-family="DejaVu Sans Mono, monospace">return 0</text>
+<path d="M1160.0,390 L1290,390" fill="none" stroke="#222" stroke-width="1.5" marker-end="url(#a)"/>
+<path d="M560,412 L560,468" fill="none" stroke="#222" stroke-width="1.5" marker-end="url(#a)"/>
+<text x="568" y="428" font-size="14" text-anchor="start" fill="#b00000" font-weight="bold" font-family="DejaVu Sans Mono, monospace">F</text>
+<text x="588" y="428" font-size="11.5" text-anchor="start" fill="#111" font-family="DejaVu Sans Mono, monospace">all scholarship_* tests except the 3 *_throws tests and violation_is0</text>
+<path d="M560,512 L560,568" fill="none" stroke="#222" stroke-width="1.5" marker-end="url(#a)"/>
+<text x="568" y="524" font-size="14" text-anchor="start" fill="#b00000" font-weight="bold" font-family="DejaVu Sans Mono, monospace">T</text>
+<text x="588" y="524" font-size="11.5" text-anchor="start" fill="#111" font-family="DejaVu Sans Mono, monospace">scholarship_highGpaEnoughCredits_is100</text>
+<text x="588" y="538" font-size="11.5" text-anchor="start" fill="#111" font-family="DejaVu Sans Mono, monospace">scholarship_highGpaLowCredits_is70</text>
+<path d="M450,490 L380,490 L380,650 L560,650" fill="none" stroke="#222" stroke-width="1.5"/>
+<text x="442" y="484" font-size="14" text-anchor="end" fill="#b00000" font-weight="bold" font-family="DejaVu Sans Mono, monospace">F</text>
+<text x="372" y="530" font-size="11.5" text-anchor="end" fill="#111" font-family="DejaVu Sans Mono, monospace">scholarship_gpa3_5Credits12_is70</text>
+<text x="372" y="545" font-size="11.5" text-anchor="end" fill="#111" font-family="DejaVu Sans Mono, monospace">scholarship_gpa3_5Credits10_is50</text>
+<text x="372" y="560" font-size="11.5" text-anchor="end" fill="#111" font-family="DejaVu Sans Mono, monospace">scholarship_gpa3_1_is50</text>
+<text x="372" y="575" font-size="11.5" text-anchor="end" fill="#111" font-family="DejaVu Sans Mono, monospace">scholarship_lowGpa_is0</text>
+<path d="M670,590 L1020.0,590" fill="none" stroke="#222" stroke-width="1.5" marker-end="url(#a)"/>
+<text x="678" y="584" font-size="14" text-anchor="start" fill="#b00000" font-weight="bold" font-family="DejaVu Sans Mono, monospace">T</text>
+<text x="698" y="582" font-size="11.5" text-anchor="start" fill="#111" font-family="DejaVu Sans Mono, monospace">scholarship_highGpaEnoughCredits_is100</text>
+<rect x="1020.0" y="568.0" width="140" height="44" rx="3" fill="#f1f1f1" stroke="#222" stroke-width="1.6"/>
+<text x="1090" y="586" font-size="14" text-anchor="middle" font-family="DejaVu Sans Mono, monospace">N9 [L52]</text>
+<text x="1090" y="604" font-size="14" text-anchor="middle" font-family="DejaVu Sans Mono, monospace">return 100</text>
+<path d="M1160.0,590 L1290,590" fill="none" stroke="#222" stroke-width="1.5" marker-end="url(#a)"/>
+<path d="M560,612 L560,668" fill="none" stroke="#222" stroke-width="1.5" marker-end="url(#a)"/>
+<text x="568" y="624" font-size="14" text-anchor="start" fill="#b00000" font-weight="bold" font-family="DejaVu Sans Mono, monospace">F</text>
+<text x="588" y="624" font-size="11.5" text-anchor="start" fill="#111" font-family="DejaVu Sans Mono, monospace">scholarship_highGpaLowCredits_is70</text>
+<path d="M560,712 L560,768" fill="none" stroke="#222" stroke-width="1.5" marker-end="url(#a)"/>
+<text x="568" y="722" font-size="14" text-anchor="start" fill="#b00000" font-weight="bold" font-family="DejaVu Sans Mono, monospace">T</text>
+<text x="588" y="722" font-size="11.5" text-anchor="start" fill="#111" font-family="DejaVu Sans Mono, monospace">scholarship_gpa3_5Credits12_is70</text>
+<text x="588" y="735" font-size="11.5" text-anchor="start" fill="#111" font-family="DejaVu Sans Mono, monospace">scholarship_gpa3_5Credits10_is50</text>
+<text x="588" y="748" font-size="11.5" text-anchor="start" fill="#111" font-family="DejaVu Sans Mono, monospace">scholarship_highGpaLowCredits_is70</text>
+<path d="M450,690 L380,690 L380,850 L560,850" fill="none" stroke="#222" stroke-width="1.5"/>
+<text x="442" y="684" font-size="14" text-anchor="end" fill="#b00000" font-weight="bold" font-family="DejaVu Sans Mono, monospace">F</text>
+<text x="372" y="735" font-size="11.5" text-anchor="end" fill="#111" font-family="DejaVu Sans Mono, monospace">scholarship_gpa3_1_is50</text>
+<text x="372" y="750" font-size="11.5" text-anchor="end" fill="#111" font-family="DejaVu Sans Mono, monospace">scholarship_lowGpa_is0</text>
+<path d="M670,790 L1020.0,790" fill="none" stroke="#222" stroke-width="1.5" marker-end="url(#a)"/>
+<text x="678" y="784" font-size="14" text-anchor="start" fill="#b00000" font-weight="bold" font-family="DejaVu Sans Mono, monospace">T</text>
+<text x="698" y="768" font-size="11.5" text-anchor="start" fill="#111" font-family="DejaVu Sans Mono, monospace">scholarship_gpa3_5Credits12_is70</text>
+<text x="698" y="781" font-size="11.5" text-anchor="start" fill="#111" font-family="DejaVu Sans Mono, monospace">scholarship_highGpaLowCredits_is70</text>
+<rect x="1020.0" y="768.0" width="140" height="44" rx="3" fill="#f1f1f1" stroke="#222" stroke-width="1.6"/>
+<text x="1090" y="786" font-size="14" text-anchor="middle" font-family="DejaVu Sans Mono, monospace">N12 [L53]</text>
+<text x="1090" y="804" font-size="14" text-anchor="middle" font-family="DejaVu Sans Mono, monospace">return 70</text>
+<path d="M1160.0,790 L1290,790" fill="none" stroke="#222" stroke-width="1.5" marker-end="url(#a)"/>
+<path d="M560,812 L560,868" fill="none" stroke="#222" stroke-width="1.5" marker-end="url(#a)"/>
+<text x="568" y="824" font-size="14" text-anchor="start" fill="#b00000" font-weight="bold" font-family="DejaVu Sans Mono, monospace">F</text>
+<text x="588" y="824" font-size="11.5" text-anchor="start" fill="#111" font-family="DejaVu Sans Mono, monospace">scholarship_gpa3_5Credits10_is50</text>
+<path d="M670,890 L1020.0,890" fill="none" stroke="#222" stroke-width="1.5" marker-end="url(#a)"/>
+<text x="678" y="884" font-size="14" text-anchor="start" fill="#b00000" font-weight="bold" font-family="DejaVu Sans Mono, monospace">T</text>
+<text x="698" y="868" font-size="11.5" text-anchor="start" fill="#111" font-family="DejaVu Sans Mono, monospace">scholarship_gpa3_1_is50</text>
+<text x="698" y="881" font-size="11.5" text-anchor="start" fill="#111" font-family="DejaVu Sans Mono, monospace">scholarship_gpa3_5Credits10_is50</text>
+<rect x="1020.0" y="868.0" width="140" height="44" rx="3" fill="#f1f1f1" stroke="#222" stroke-width="1.6"/>
+<text x="1090" y="886" font-size="14" text-anchor="middle" font-family="DejaVu Sans Mono, monospace">N14 [L54]</text>
+<text x="1090" y="904" font-size="14" text-anchor="middle" font-family="DejaVu Sans Mono, monospace">return 50</text>
+<path d="M1160.0,890 L1290,890" fill="none" stroke="#222" stroke-width="1.5" marker-end="url(#a)"/>
+<path d="M560,912 L560,968" fill="none" stroke="#222" stroke-width="1.5" marker-end="url(#a)"/>
+<text x="568" y="924" font-size="14" text-anchor="start" fill="#b00000" font-weight="bold" font-family="DejaVu Sans Mono, monospace">F</text>
+<text x="588" y="924" font-size="11.5" text-anchor="start" fill="#111" font-family="DejaVu Sans Mono, monospace">scholarship_lowGpa_is0</text>
+<rect x="450.0" y="968.0" width="220" height="44" rx="3" fill="#f1f1f1" stroke="#222" stroke-width="1.6"/>
+<text x="560" y="995" font-size="14" text-anchor="middle" font-family="DejaVu Sans Mono, monospace">N15 [L55] return 0</text>
+<path d="M670,990 L1290,990" fill="none" stroke="#222" stroke-width="1.5" marker-end="url(#a)"/>
+<text x="20" y="1060" font-size="12" text-anchor="start" fill="#111" font-weight="bold" font-family="DejaVu Sans Mono, monospace">CFG of scholarship(gpa, credits, hasViolation), ScholarshipCalculator.java lines 47-56.</text>
+<text x="20" y="1077" font-size="11" text-anchor="start" fill="#111" font-family="DejaVu Sans Mono, monospace">Rounded boxes = decisions (one JaCoCo branch pair each), square boxes = statements. T/F = outcome. Test names are real methods of ScholarshipCalculatorTest.</text>
+</svg>
