@@ -46,6 +46,8 @@ JaCoCo тайлан дээрх ажиглалт (`ScholarshipCalculator.java`, �
 
 `cfg.png` (эх файл нь `cfg.svg`) нь `scholarship()` функцын CFG. N1-N15 зангилаа нь эх кодын мөртэй таарна, ирмэг бүрийн хажууд түүнийг дайрах тестийн бодит нэр бичигдсэн. `gpa < 0 || gpa > 4 || credits < 0` нөхцөл бүрийг JaCoCo тусдаа салаа гэж тоолдог тул тус тусын зангилаа (N1-N3) болгосон. CFG-г цахим хэлбэрээр зурсан (гараар биш).
 
+![scholarship() функцын CFG: N1-N15 зангилаа бүр эх кодын мөртэй, ирмэг бүрт түүнийг дайрах тестийн нэр бичигдсэн](cfg.png)
+
 Гурван функцэд нэмсэн тестүүд:
 
 - `letterGrade`: `letterGrade_75_isC`, `letterGrade_65_isD`, `letterGrade_30_isF`, `letterGrade_negative_throws`, `letterGrade_above100_throws`
