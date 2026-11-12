@@ -1,5 +1,29 @@
 # Лаб 10: Өгөгдлийн урсгалын тест — Definition-Use хосууд
 
+**Нэр:** Г. Үлэмж
+
+**Оюутны код:** B232270805
+
+## Орчин
+
+`java -version` командын бүтэн гаралт:
+
+```
+openjdk version "25.0.4" 2026-07-21
+OpenJDK Runtime Environment (build 25.0.4+-16339643-b508.27)
+OpenJDK 64-Bit Server VM (build 25.0.4+-16339643-b508.27, mixed mode)
+```
+
+`mvn -version` командын бүтэн гаралт:
+
+```
+Apache Maven 3.10.0 (c43a36b8d67be7e0805a411bc0898af1a51f5472)
+Maven home: /usr/share/java/maven
+Java version: 25.0.4, vendor: JetBrains s.r.o., runtime: /opt/android-studio/jbr
+Default locale: en_US, platform encoding: UTF-8, time zone: Asia/Ulaanbaatar
+OS name: "linux", version: "7.2.15-arch1-1", arch: "amd64", family: "unix"
+```
+
 Бүх мөрийн дугаар нь `src/main/java/mn/edu/must/sqat/DataFlowTargets.java` **файлын** мөр
 (лекцийн слайдын 1–8 дугаарлалт биш: 1→13, 3→15, 4→16, 5→17, 6→18, 8→20).
 
@@ -223,6 +247,13 @@ DU мөр** хамрагдсан, I1/I2-г хамрах шаардлагагүй
 BRANCH_COVERED = 16 (100%)**, **LINE_MISSED = 1, LINE_COVERED = 23**.
 Хамрагдаагүй 7-р мөр нь Java-гийн далд constructor тул түүнд зориулж тест нэмээгүй.
 
+Хэсэг C-ийн дараа эх кодыг сэргээсний дараах эцсийн баталгаажуулалтаар
+([`mvn-verify-final.txt`](results/mvn-verify-final.txt)) `Tests run: 10, Failures: 0,
+Errors: 0, Skipped: 0`, `BUILD SUCCESS` гарсан (10 дахь тест нь Хэсэг C-д нэмсэн b8).
+[`jacoco-final.csv`](results/jacoco-final.csv)-д `BRANCH_MISSED = 0`,
+`BRANCH_COVERED = 16` (100%), `LINE_MISSED = 1`, `LINE_COVERED = 23` байна;
+хамрагдаагүй 7-р мөр нь мөн л далд constructor юм.
+
 **Branch ба DU ялгаатай:** B1+B2+B5+B6 (мөн gcd-ийн G1/G2) нь аль хэдийн
 16/16 салааг дайрна, гэвч `present@35→50 p(T)` хос хамрагдахгүй: 50[T]-г B1
 дайрахдаа present-ийг 40-д шинэчилсэн байдаг, харин def 35-ыг хадгалсан B2 зөвхөн
@@ -236,3 +267,79 @@ BRANCH_COVERED = 16 (100%)**, **LINE_MISSED = 1, LINE_COVERED = 23**.
 Зурагт ирмэг бүрийн хажууд түүнийг дайрдаг дор хаяж нэг бодит тестийн метод
 бичсэн; T/F нь нөхцөлийн салаа. Энгийн зангилаанд файлын мөрийн дугаар,
 32/38-ын салгасан зангилаанд дээрх 32a/32b, 38c/38a тэмдэглэгээг хэрэглэв.
+
+## C. Fault seeding
+
+`DataFlowTargets.java` дээр 3 мутацийг нэг нэгээр нь хийж, мутаци бүрийн дараа
+`mvn test`-ийн бүтэн гаралтыг `results/` хавтсанд хадгалсан. Мутаци бүрийн дараа
+файлыг `git restore`-оор буцаасан бөгөөд мутацийг commit хийгээгүй.
+
+| № | Мутаци | Төрөл | Унасан тест | Тестийн `expected/was` мөр | Баригдсан уу? |
+|---|---|---|---|---|---|
+| M1 | 41-р мөр `streak = streak + 1;`-ийг устгах | дутуу update (missing update) | `b1_exactThresholdBrokenStreak_returnsEight`, `b4_sixDayStreakBelowThreshold_returnsThree` | `expected: <8> but was: <5>`, `expected: <3> but was: <0>` | Тийм — `Tests run: 9, Failures: 2` ([results/mvn-test-M1.txt](results/mvn-test-M1.txt)) |
+| M2 | 43-р мөр `best = streak;` → `best = present;` | буруу хувьсагч | — (алдаа алга) | — | Үгүй — `Tests run: 9, Failures: 0` ([results/mvn-test-M2.txt](results/mvn-test-M2.txt)) |
+| M2-kill | `b8` тест нэмэх | — | `b8_absenceBeforeLongerRun_returnsFive` | `expected: <5> but was: <8>` | Тийм — `Tests run: 10, Failures: 1` ([results/mvn-test-M2-kill.txt](results/mvn-test-M2-kill.txt)) |
+| M3 | давталтын дараа `int total = present + best;` нэмэх | үхсэн def (dead definition) | — (бүх ногоон) | — | Үгүй — `Tests run: 10, Failures: 0` ([results/mvn-test-M3.txt](results/mvn-test-M3.txt)) |
+
+### M2: 9 тестэд амьд үлдэх шалтгаан
+
+9 тест бүх DU хосыг хамарч байсан ч M2 амьд үлдэв ([results/mvn-test-M2.txt](results/mvn-test-M2.txt)).
+Өмнөх тестүүдэд `best` шинэчлэгдэх бүрд `present` ба `streak` тэнцүү байсан тул
+буруу хувьсагч уншсан ч ижил утга гарсан. DU хамралт нь аль def аль use-д
+хүрснийг хэмждэг болохоос урсаж буй утгын зөв эсэхийг баталдаггүй. Унагасан тест:
+`b8_absenceBeforeLongerRun_returnsFive`, оролт `{1, 1, 0, 1, 1, 1}`, threshold 0.
+Javadoc-ийн дүрмээр хариу 5: 5 ирсэн өдөр >= 0 тул 5 оноо, хамгийн урт цуваа
+3 < 5 тул +3 өгөгдөхгүй. Мутант `best`-д `present`-ийн 5 гэсэн утгыг оноож, 8-ыг
+буцаана ([results/mvn-test-M2-kill.txt](results/mvn-test-M2-kill.txt):
+`expected: <5> but was: <8>`).
+
+### M3: ашиггүй def
+
+Нэг ч тест унасангүй ([results/mvn-test-M3.txt](results/mvn-test-M3.txt), бүх
+ногоон; javac анхааруулга гаргаагүй). Ашиггүй def нь гаралтыг өөрчилдөггүй тул
+тест түүнийг харах боломжгүй; `total`-д use байхгүй учраас DU хос үүсгэхгүй.
+Үүнийг тест биш, статик шинжилгээ (IDE-ийн шалгалтаар) олно.
+
+Android Studio-ийн inspection (статик шинжилгээ) `int total = present + best;`
+мөрөнд дараах анхааруулгыг гаргасан:
+
+> `Variable 'total' is never used`
+
+Санал болгосон засвар нь `Remove local variable 'total'`. Энэ нь тест болон
+`javac` илрүүлээгүй ашиггүй (үхсэн) def-ийг статик шинжилгээ илрүүлдгийг харуулна.
+
+## Дүгнэлт
+
+Branch хамралт нь аль салаа гүйцэтгэгдсэнийг л хэмждэг бол DU анализ нь
+хувьсагчийн утга хаанаас хаашаа урсаж, хаана хэрэглэгдсэнийг шалгадаг.
+Үүний нотолгоо нь: B1, B2, B5, B6 тестүүд (gcd-ийн G1, G2-той хамт) 16/16 салааг
+хамарсан ч `present@35→50 p(T)` DU хос хамрагдаагүй байсан.
+Мөн all-DU-pairs хангасан 9 тест M2 мутантыг барьж чадаагүй: DU хамралт нь def
+use-д хүрч байгааг шалгадаг боловч урсаж буй утга зөв эсэхийг шалгадаггүй тул
+утгыг ялгадаг b8 тест нэмэх шаардлагатай болсон.
+DU анализ үнэтэй: `bonus`-ийн (p-use-ийг салаагаар задалсан) 35 мөр бүхий DU
+хүснэгтийг гаргаж, kill болон биелэшгүй хосыг тусад нь шинжилж, CFG зурж,
+тест бичих шаардлагатай байв. Хувьсагч болон дахин тодорхойлолт (kill) олон болох
+тусам энэ зардал хурдан өснө.
+M3-ийн үхсэн def нь DU хос үүсгэдэггүй, ямар ч тест унагадаггүй тул тест болон DU
+хамралтаар олдохгүй; үүнийг зөвхөн статик шинжилгээний хэрэгсэл анхааруулна.
+Тиймээс branch хамралт нь хурдан анхны шалгалт, DU анализ нь утгын урсгалыг
+гүнзгий шалгана, харин статик шинжилгээ нь тестээр илрэхгүй гажилтыг илрүүлнэ.
+Хамгийн их цаг авсан алхам нь `bonus` функцийн DU хүснэгтийг (35 мөр) шалгах ажил
+байв: мөр бүрийн def-clear зам, kill ба биелэшгүй хосыг developer, lead, reviewer
+гэсэн AI агентуудын бие даасан тооцоололтоор давхар шалгахад хамгийн их хүчин
+чармайлт зарцуулагдсан.
+
+## AI ашигласан хэсэг
+
+Энэ лабын ажлыг оюутны удирдлага дор AI агентуудын баг гүйцэтгэсэн:
+
+- **lead / architect:** Claude Sonnet 5.5 — төлөвлөлт, DU хүснэгтийг гаргах ажил,
+  үр дүнгийн баталгаажуулалт, README-г засварлах.
+- **reviewer:** GPT-6.1-Sol — гүйцэтгэсэн ажлыг хараат бусаар шалгасан.
+- **developer:** өмнөх Codex дээр суурилсан агент (gcd/bonus тестүүд, DU
+  хүснэгтүүд, CFG зураг) ба локал Qwen3.8-27B загвар (мутацийн гүйлтүүд,
+  `results/` файлууд, README-ийн ноорог).
+
+AI агентууд DU хүснэгтүүд, тестүүд, `cfg-bonus.png` болон README-г боловсруулж,
+Maven командуудыг ажиллуулан бодит гаралтыг `results/`-д хадгалсан.
