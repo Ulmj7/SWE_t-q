@@ -50,4 +50,10 @@ class BonusTest {
     void b7_shortStreakAtThreshold_returnsFive() {
         assertEquals(5, DataFlowTargets.bonus(new int[] {0, 1, 1, 0, 1}, 3));
     }
+
+    @Test
+    @DisplayName("B8 {1,1,0,1,1,1}, threshold 0 -> 5; kills M2 (present vs streak)")
+    void b8_absenceBeforeLongerRun_returnsFive() {
+        assertEquals(5, DataFlowTargets.bonus(new int[] {1, 1, 0, 1, 1, 1}, 0));
+    }
 }
