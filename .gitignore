@@ -1,0 +1,9 @@
+/node_modules/
+/test-results/
+/playwright-report/
+/playwright/.cache/
+/blob-report/
+/.npm-cache/
+/.lab-logs/
+/.npm-install.log
+/.playwright-install.log

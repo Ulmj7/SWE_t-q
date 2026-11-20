@@ -1,0 +1,13 @@
+{
+  "name": "lab01-playwright",
+  "version": "1.0.0",
+  "description": "F.CSA313 Lab 01 — SauceDemo UI automation",
+  "scripts": {
+    "test": "playwright test"
+  },
+  "private": true,
+  "devDependencies": {
+    "@playwright/test": "^1.65.1",
+    "@types/node": "^26.6.6"
+  }
+}
