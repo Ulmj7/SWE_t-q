@@ -1,0 +1,2 @@
+Cart baseline (baseline.txt): p95=1.89ms; headroom 5 ms − 1.89 ms = 3.11 ms
+Cart in deliberate report failure (fail.txt): p95=1.74ms; 1.74 ms < 50 ms, so p(95)<50 would pass for this run

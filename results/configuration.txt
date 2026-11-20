@@ -1,0 +1,5 @@
+Lab 3 (F.CSA313) — configured values from server.js, slo-test.js, and chaos.sh
+Endpoint: localhost:3000; HTTP success check: status 200
+Report simulation: 200–400 ms delay
+Payment simulation: status 500 with 5% probability; failure SLO <8%
+Load: 20 VU for 1 min normally and 2 min in chaos; 10 s restart delay

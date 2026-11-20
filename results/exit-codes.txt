@@ -1,0 +1,6 @@
+pass=0 — observed k6 pipeline exit with Bash pipefail; results/pass.txt
+NO_PROXY=localhost,127.0.0.1,::1 K6_NO_USAGE_REPORT=true K6_NO_COLOR=true k6 run slo-test.js 2>&1 | tee results/pass.txt
+chaos=99 — recorded in chaos-events.txt
+k6 run --no-color --no-usage-report --duration 2m slo-test.js >results/chaos.txt 2>&1 (via ./chaos.sh; wait preserves the status)
+fail=99 — recorded as exit=99 in fail.txt
+NO_PROXY=localhost,127.0.0.1,::1 K6_NO_USAGE_REPORT=true K6_NO_COLOR=true k6 run slo-test-fail.js 2>&1 | tee results/fail.txt (Bash PIPESTATUS[0])

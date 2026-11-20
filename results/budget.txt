@@ -1,0 +1,6 @@
+Sources: chaos.txt, chaos-events.txt, slo-test.js
+SLO: checks rate>0.90 (>90%), failed share <10%
+Chaos window: 2m0s = 120 s
+Time budget: (1 − 0.90) × 120 s = 12 s
+Measured recovery time: 10.15 s
+Request budget: 5691 total, 569 allowed, 678 failed, 109 over
