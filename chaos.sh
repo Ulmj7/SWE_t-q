@@ -17,7 +17,9 @@ cleanup() {
 }
 
 start_server() {
-  if [[ -n $(ss -H -ltn 'sport = :3000') ]]; then
+  local listeners
+  listeners=$(ss -H -ltn 'sport = :3000') || return 1
+  if [[ -n $listeners ]]; then
     echo 'Port 3000 is occupied. Stop the other server first.' >&2
     return 1
   fi
