@@ -1,0 +1,5 @@
+server killed at +35.01 s
+restart delay: 10 s
+server ready at +45.16 s
+recovery time: 10.15 s
+k6 exit=99

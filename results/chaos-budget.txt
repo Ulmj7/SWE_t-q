@@ -1,0 +1,3 @@
+Source: results/chaos.txt
+Maximum failures under checks rate>0.90: ceil(0.10 × 5691) − 1 = 569
+Failures beyond the request budget: 678 − 569 = 109
