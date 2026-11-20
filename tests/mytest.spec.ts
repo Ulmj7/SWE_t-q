@@ -10,7 +10,7 @@ async function login(page: Page, password: string) {
 async function logout(page: Page) {
   // Цэсээр бодитоор гарч, нэвтрэх хуудас болон товч буцаж ирснийг шалгана.
   await page.getByRole('button', { name: 'Open Menu', exact: true }).click();
-  await page.getByTestId('logout-sidebar-link').click();
+  await page.getByRole('button', { name: 'Logout', exact: true }).click();
   await expect(page).toHaveURL('/');
   await expect(page.getByRole('button', { name: 'Login', exact: true })).toBeVisible();
 }
@@ -22,8 +22,9 @@ test.beforeEach(async ({ page }) => {
 
 test.afterEach(async ({ page }) => {
   // Нэвтэрсэн тестийг assertion унасан үед ч цэсээр гаргаж дуусгана.
-  // Буруу нууц үгээр нэвтрээгүй бол энэ цэс харагдахгүй.
-  if (await page.getByRole('button', { name: 'Open Menu', exact: true }).isVisible()) {
+  // Эдгээр хоёр хуудас нэвтэрсний дараа л нээгдэнэ.
+  const { pathname } = new URL(page.url());
+  if (pathname === '/inventory.html' || pathname === '/cart.html') {
     await logout(page);
   }
 });
