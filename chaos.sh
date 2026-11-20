@@ -27,7 +27,9 @@ start_server() {
   server_pid=$!
   for attempt in {1..50}; do
     kill -0 "$server_pid" || return 1
-    if curl -fsS --max-time 1 --noproxy '*' -X POST http://localhost:3000/cart/add >/dev/null 2>&1; then
+    listeners=$(ss -H -ltnp 'sport = :3000') || return 1
+    if [[ $listeners == *"pid=$server_pid,"* ]] &&
+      curl -fsS --max-time 1 --noproxy '*' -X POST http://localhost:3000/cart/add >/dev/null 2>&1; then
       return 0
     fi
     sleep 0.1
