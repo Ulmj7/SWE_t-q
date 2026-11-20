@@ -61,8 +61,13 @@ PLAYWRIGHT_BROWSERS_PATH=0 npx playwright show-trace --host 127.0.0.1 --port 941
 6. Товчны харагдах нэр болон тестийн ID-д тулгуурласан locator уншихад ойлгомжтой, DOM-ийн шатлалд тулгуурласан XPath-аас хараат байдал багатай санагдсан.
 7. Selenium-ийн лог, дэлгэцийн зурагтай харьцуулахад Trace Viewer дээр алдааны мөр, өмнөх үйлдэл, тухайн агшны DOM-ийг нэг дор харах боломж надад илүү хэрэгтэй байв.
 
-Харьцуулалтыг лабораторийн зааварт тайлбарласан Selenium-ийн ажиллагаа болон дээрх Playwright туршилтад үндэслэсэн. Codegen-ийг дэлгэцийн цонх нээлгүй ажиллуулахдаа `.lab-logs/codegen-chromium` скриптээр `exec /usr/bin/chromium --remote-debugging-port=9420 "$@"` ажиллуулж, нэвтрэх болон гарах үйлдлийг CDP-ээр дамжуулсан.
+Харьцуулалтыг лабораторийн зааварт тайлбарласан Selenium-ийн ажиллагаа болон дээрх Playwright туршилтад үндэслэсэн.
+
+График орчинд Codegen турших бол браузеруудаа дээрх заавраар суулгаад төслийн хавтсаас ажиллуулна.
 
 ```bash
-PLAYWRIGHT_BROWSERS_PATH=0 PWTEST_CLI_HEADLESS=1 PWTEST_CLI_EXECUTABLE_PATH="$PWD/.lab-logs/codegen-chromium" npx playwright codegen --target=playwright-test --output .lab-logs/codegen.spec.ts https://www.saucedemo.com/
+export PLAYWRIGHT_BROWSERS_PATH=0
+npx playwright codegen https://www.saucedemo.com/
 ```
+
+**Туршилтын тэмдэглэл.** Энэ лабораторийн харьцуулалтад Codegen-ийг Arch Linux дээр цонх нээлгүй, системийн Chromium ашиглан ажиллуулсан. SauceDemo-д нэвтрэх болон гарах үйлдлүүдийг дотоод CDP холболтоор гүйцэтгэж, үүссэн TypeScript кодыг тесттэйгээ харьцуулсан.
